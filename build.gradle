@@ -1,16 +1,10 @@
-group 'archiveUpdater'
-
 apply plugin: 'java'
 apply plugin: 'application'
 
-mainClassName = 'archiveUpdater.controller.***'
-
-dependencies {
-    compile 'com.google.code.gson:gson:2.7'
-}
+mainClassName = 'archiveUpdater.controller.MainApplication'
 
 jar {
     manifest {
-        attributes ('Main-Class': 'archiveUpdater.controller.***')
+        attributes ('Main-Class': 'archiveUpdater.controller.MainApplication')
     }
 }
