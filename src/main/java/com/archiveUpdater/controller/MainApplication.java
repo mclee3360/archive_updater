@@ -1,4 +1,4 @@
-package archiveUpdater.controller;
+package com.archiveUpdater.controller;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
