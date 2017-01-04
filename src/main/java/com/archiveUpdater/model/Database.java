@@ -1,6 +1,7 @@
 package com.archiveUpdater.model;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 /**
  * Interface for backing database.
  *
@@ -13,28 +14,28 @@ public interface Database {
      *
      * @return an Entry from the database
      */
-    public Entry getEntry() { }
+    public Entry getEntry();
 
     /**
      * Gets all entries from the database.
      *
      * @return a list of all entries in the database
      */
-    public List<Entry> getAllEntries() { }
+    public List<Entry> getAllEntries();
 
     /**
      * Gets all written entries from the database.
      *
      * @return a list of all written entries in the database
      */
-    public List<Written> getAllWrittenEntries() { }
+    public List<Written> getAllWrittenEntries();
 
     /**
      * gets all edited entries from the database.
      *
      * @return a list of all edited entries in the database
      */
-    public List<Edited> getAllEditedEntries() { }
+    public List<Edited> getAllEditedEntries();
 
     /**
      * Add an entry to the database. If an equivalent entry is
@@ -43,7 +44,7 @@ public interface Database {
      *
      * @param entry  the entry to be uploaded to the database
      */
-    public void addEntry(Entry entry) { }
+    public void addEntry(Entry entry);
 
     /**
      * Remove an entry from the database.
@@ -52,5 +53,5 @@ public interface Database {
      * @throws NoSuchElementException if entry does not exist in the database
      * @return the removed entry
      */
-    public Entry removeEntry(Entry entry) throws NoSuchElementException { }
+    public Entry removeEntry(Entry entry) throws NoSuchElementException;
 }
