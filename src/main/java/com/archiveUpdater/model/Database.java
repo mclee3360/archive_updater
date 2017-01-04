@@ -9,6 +9,12 @@ import java.util.NoSuchElementException;
  */
 public interface Database {
 
+
+    /**
+     * Initializes the database.
+     */
+    public void initDatabase();
+
     /**
      * Gets an entry from the database.
      *

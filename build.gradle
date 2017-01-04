@@ -3,6 +3,15 @@ apply plugin: 'application'
 
 mainClassName = 'com.archiveUpdater.controller.MainApplication'
 
+sourceSets {
+    main {
+        resources {
+            srcDirs = ["src/main/java/com/archiveUpdater/view"]
+            includes = ["*.fxml"]
+        }
+    }
+}
+
 repositories {
     mavenCentral()
 }
