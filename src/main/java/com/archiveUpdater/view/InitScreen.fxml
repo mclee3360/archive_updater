@@ -24,7 +24,7 @@
                <children>
                   <VBox alignment="TOP_CENTER">
                      <children>
-                        <Button fx:id="addButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Add Entry">
+                        <Button fx:id="addButton" mnemonicParsing="false" onAction="#add" prefHeight="50.0" prefWidth="200.0" text="Add Entry">
                            <font>
                               <Font size="24.0" />
                            </font>

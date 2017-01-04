@@ -59,6 +59,14 @@ public class MainApplication extends Application {
     }
 
     /**
+     * Loads the entry adding screen onto the window.
+     */
+    public void loadAdd() {
+        Controller addCtrl = loadFXML("/AddScreen.fxml");
+        addCtrl.setApplication(this);
+    }
+
+    /**
      * Gets the application's window.
      *
      * @return the application window

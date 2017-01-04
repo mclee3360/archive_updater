@@ -1,6 +1,5 @@
 package com.archiveUpdater.controller;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 
 import javafx.event.ActionEvent;
@@ -22,6 +21,16 @@ public class InitController extends Controller {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) { }
+
+    /**
+     * Changes to the entry adding screen.
+     *
+     * @param e  the event that triggers the action
+     */
+    @FXML
+    public void add(ActionEvent e) {
+        getApplication().loadAdd();
+    }
 
     /**
      * Exits the application.
