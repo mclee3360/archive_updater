@@ -1,26 +1,17 @@
 package com.archiveUpdater.model;
 
 /**
- * The synopsis entries.
+ * Abstract class of the synopsis entries.
  *
  * Created 01/04/2017
  */
-public class Entry {
+public abstract class Entry implements Comparable<Entry> {
 
     private String entrySource;
     private String imageSource;
     private String title;
     private boolean didFinalEdit;
     private boolean isUploaded;
-
-    public Entry(String entrySource, String imageSource, String title,
-        boolean didFinalEdit, boolean isUploaded) {
-        this.entrySource = entrySource;
-        this.imageSource = imageSource;
-        this.title = title;
-        this.didFinalEdit = didFinalEdit;
-        this.isUploaded = isUploaded;
-    }
 
     /**
      * Gets the URL of the entry on MAL
@@ -54,7 +45,7 @@ public class Entry {
      *
      * @param source  the URL of the entry's poster on MAL
      */
-    public void setImageSource() {
+    public void setImageSource(String source) {
         this.imageSource = source;
     }
 
@@ -110,5 +101,30 @@ public class Entry {
      */
     public void setUploaded(boolean uploaded) {
         this.isUploaded = uploaded;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Entry)) {
+            return false;
+        }
+        Entry that = (Entry) o;
+        return this.entrySource.equals(that.entrySource);
+    }
+
+    @Override
+    public int hashCode() {
+        return entrySource.hashCode();
+    }
+
+    @Override
+    /**
+     * Compare based on title.
+     */
+    public int compareTo(Entry that) {
+        return this.title.compareTo(that.title);
     }
 }
