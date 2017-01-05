@@ -1,12 +1,10 @@
 package com.archiveUpdater.model;
 
 import com.firebase.client.*;
-// import com.google.firebase.FirebaseApp;
-// import com.google.firebase.database.*;
-// import com.google.firebase.FirebaseOptions;
 
 import java.io.FileInputStream;
 
+import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
@@ -80,10 +78,17 @@ public class FireDatabase extends Database {
         location = location.child(id);
         MockEntry mock = new MockEntry(entry);
         location.setValue(mock);
+        Date date = new Date();
+        String[] splitDate = date.toString().split(" ");
+        String stringDate = splitDate[1] + " " + splitDate[2] + " " + splitDate[5];
         if (entry instanceof Written) {
             allWritten.add(entry);
+            location = database.child("date/written");
+            location.setValue(stringDate);
         } else if (entry instanceof Edited) {
             allEdited.add(entry);
+            location = database.child("date/edited");
+            location.setValue(stringDate);
         }
 
     }
@@ -216,10 +221,17 @@ public class FireDatabase extends Database {
         String id = url[3] + "-" + url[4];
         location = location.child(id);
         location.removeValue();
+        Date date = new Date();
+        String[] splitDate = date.toString().split(" ");
+        String stringDate = splitDate[1] + " " + splitDate[2] + " " + splitDate[5];
         if (entry instanceof Written) {
             allWritten.remove(entry);
+            location = database.child("date/written");
+            location.setValue(stringDate);
         } else if (entry instanceof Edited) {
             allEdited.remove(entry);
+            location = database.child("date/edited");
+            location.setValue(stringDate);
         }
         return entry;
     }
