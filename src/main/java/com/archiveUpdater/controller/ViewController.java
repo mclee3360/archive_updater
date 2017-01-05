@@ -9,12 +9,16 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.List;
+import java.util.Comparator;
+import java.util.Optional;
 
 import com.archiveUpdater.model.Entry;
 /**
@@ -34,7 +38,8 @@ public class ViewController extends Controller {
 
     @FXML private ListView<Entry> writtenShowcase;
     @FXML private ListView<Entry> editedShowcase;
-    @FXML private Button removeShowcase;
+    @FXML private Button removeWrittenShowcase;
+    @FXML private Button removeEditedShowcase;
 
     private List<Entry> writtenList;
     private List<Entry> editedList;
@@ -57,6 +62,12 @@ public class ViewController extends Controller {
         editedList = getApplication().getDatabase().getAllEditedEntries();
         writtenShowList = getApplication().getDatabase().getWrittenShowcase();
         editedShowList = getApplication().getDatabase().getEditedShowcase();
+
+        Comparator<Entry> sorter = new Sorter();
+        writtenList.sort(sorter);
+        editedList.sort(sorter);
+        writtenShowList.sort(sorter);
+        editedShowList.sort(sorter);
     }
 
     /**
@@ -91,9 +102,12 @@ public class ViewController extends Controller {
     public void editWritten(ActionEvent e) {
         try {
             Entry selected = written.getSelectionModel().getSelectedItem();
+            if (selected == null) {
+                throw new NullPointerException("Please select an entry to remove");
+            }
             getApplication().loadEdit(selected);
         } catch (NullPointerException error) {
-            showAlert("Please select an entry to edit");
+            showAlert(error.getMessage());
         }
     }
 
@@ -111,11 +125,10 @@ public class ViewController extends Controller {
             try {
                 Entry selected = written.getSelectionModel().getSelectedItem();
                 getApplication().getDatabase().addShowcase(selected);
-                writtenShowList.add(selected);
-                updateLists();
                 showAlert("Entry was successfully added to written showcase");
+                getApplication().loadView();
             } catch (NullPointerException error) {
-                showAlert("Please select an entry to edit");
+                showAlert("Please select an entry to add");
             }
         }
     }
@@ -129,10 +142,88 @@ public class ViewController extends Controller {
     public void editEdited(ActionEvent e) {
         try {
             Entry selected = edited.getSelectionModel().getSelectedItem();
+            if (selected == null) {
+                throw new NullPointerException("Please select an entry to remove");
+            }
             getApplication().loadEdit(selected);
         } catch (NullPointerException error) {
-            showAlert("Please select an entry to edit");
+            showAlert(error.getMessage());
         }
+    }
+
+    /**
+     * Adds currently selected edited entry to edited showcase.
+     *
+     * @param e  the event that triggers the action
+     */
+    @FXML
+    public void addEditedShowcase(ActionEvent e) {
+        if (getApplication().getDatabase().getEditedShowcase().size() >= 4) {
+            showAlert("Cannot have more than four entries in showcase. Please "
+                + "remove one before adding.");
+        } else {
+            try {
+                Entry selected = edited.getSelectionModel().getSelectedItem();
+                getApplication().getDatabase().addShowcase(selected);
+                showAlert("Entry was successfully added to written showcase");
+                getApplication().loadView();
+            } catch (NullPointerException error) {
+                showAlert("Please select an entry to add");
+            }
+        }
+    }
+
+    /**
+     * Removes selected written showcase.
+     *
+     * @param e  the event that triggers the action
+     */
+    @FXML
+    public void removeWrittenShowcase(ActionEvent e) {
+        try {
+            Entry selected = writtenShowcase.getSelectionModel().getSelectedItem();
+            if (selected == null) {
+                throw new NullPointerException("Please select an entry to remove");
+            }
+            Optional<ButtonType> selection = askConfirmation();
+            if (selection.get() == ButtonType.OK) {
+                getApplication().getDatabase().removeShowcase(selected);
+                getApplication().loadView();
+            }
+        } catch (NullPointerException error) {
+            showAlert(error.getMessage());
+        }
+    }
+
+    /**
+     * Removes selected edited showcase.
+     *
+     * @param e  the event that triggers the action
+     */
+    @FXML
+    public void removeEditedShowcase(ActionEvent e) {
+        try {
+            Entry selected = editedShowcase.getSelectionModel().getSelectedItem();
+            if (selected == null) {
+                throw new NullPointerException("Please select an entry to remove");
+            }
+            Optional<ButtonType> selection = askConfirmation();
+            if (selection.get() == ButtonType.OK) {
+                getApplication().getDatabase().removeShowcase(selected);
+                getApplication().loadView();
+            }
+        } catch (NullPointerException error) {
+            showAlert(error.getMessage());
+        }
+    }
+
+    /**
+     * Returns to the starting screen.
+     *
+     * @param e  the event that triggers the action
+     */
+    public void back(ActionEvent e) {
+        getApplication().loadInit();
     }
 
     private void showAlert(String msg) {
@@ -143,4 +234,18 @@ public class ViewController extends Controller {
         alert.showAndWait();
     }
 
+    private Optional<ButtonType> askConfirmation() {
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Notification");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure you want to remove this showcase?");
+        return alert.showAndWait();
+    }
+
+    private class Sorter implements Comparator<Entry> {
+        @Override
+        public int compare(Entry e1, Entry e2) {
+            return e1.compareTo(e2);
+        }
+    }
 }

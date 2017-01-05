@@ -109,6 +109,13 @@ public class AddController extends Controller {
             showAlert("Must select a entry type");
             return false;
         }
+        try {
+            String[] url = sourceInput.getText().split("/");
+            String id = url[3] + "-" + url[4];
+        } catch (IndexOutOfBoundsException e) {
+            showAlert("Must input valid MAL Source URL");
+            return false;
+        }
         return true;
     }
 

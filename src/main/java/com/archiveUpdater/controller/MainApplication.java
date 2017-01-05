@@ -90,7 +90,9 @@ public class MainApplication extends Application {
      * @param toEdit  the entry to edit
      */
     public void loadEdit(Entry toEdit) {
-        System.out.println(toEdit.getTitle());
+        Controller editCtrl = loadFXML("/EditScreen.fxml");
+        editCtrl.setApplication(this);
+        ((EditController) editCtrl).loadEntry(toEdit);
     }
 
     /**

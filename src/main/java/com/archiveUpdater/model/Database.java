@@ -67,4 +67,12 @@ public abstract class Database {
      * @return the removed entry
      */
     public abstract Entry removeEntry(Entry entry);
+
+    /**
+     * Remove an entry from the showcase.
+     *
+     * @param entry  the entry to be removed from the showcase
+     * @return the removed entry
+     */
+    public abstract Entry removeShowcase(Entry entry);
 }

@@ -85,6 +85,7 @@ public class FireDatabase extends Database {
         } else if (entry instanceof Edited) {
             allEdited.add(entry);
         }
+
     }
 
     @Override
@@ -121,9 +122,6 @@ public class FireDatabase extends Database {
                     Entry entry = new Written(mock);
                     allWritten.add(entry);
                 }
-                allWritten.sort((Entry entry1, Entry entry2) -> {
-                    return entry1.compareTo(entry2);
-                });
             }
 
             @Override
@@ -148,9 +146,6 @@ public class FireDatabase extends Database {
                     Entry entry = new Edited(mock);
                     allEdited.add(entry);
                 }
-                allEdited.sort((Entry entry1, Entry entry2) -> {
-                    return entry1.compareTo(entry2);
-                });
             }
 
             @Override
@@ -175,9 +170,6 @@ public class FireDatabase extends Database {
                     Entry entry = new Written(mock);
                     writtenShowcase.add(entry);
                 }
-                writtenShowcase.sort((Entry entry1, Entry entry2) -> {
-                    return entry1.compareTo(entry2);
-                });
             }
 
             @Override
@@ -202,9 +194,6 @@ public class FireDatabase extends Database {
                     Entry entry = new Edited(mock);
                     editedShowcase.add(entry);
                 }
-                editedShowcase.sort((Entry entry1, Entry entry2) -> {
-                    return entry1.compareTo(entry2);
-                });
             }
 
             @Override
@@ -217,7 +206,41 @@ public class FireDatabase extends Database {
 
     @Override
     public Entry removeEntry(Entry entry) {
-        return null;
+        Firebase location = database;
+        if (entry instanceof Written) {
+            location = database.child("written");
+        } else if (entry instanceof Edited) {
+            location = database.child("edited");
+        }
+        String[] url = entry.getEntrySource().split("/");
+        String id = url[3] + "-" + url[4];
+        location = location.child(id);
+        location.removeValue();
+        if (entry instanceof Written) {
+            allWritten.remove(entry);
+        } else if (entry instanceof Edited) {
+            allEdited.remove(entry);
+        }
+        return entry;
     }
 
+    @Override
+    public Entry removeShowcase(Entry entry) {
+        Firebase location = database;
+        if (entry instanceof Written) {
+            location = database.child("showcase/written");
+        } else if (entry instanceof Edited) {
+            location = database.child("showcase/edited");
+        }
+        String[] url = entry.getEntrySource().split("/");
+        String id = url[3] + "-" + url[4];
+        location = location.child(id);
+        location.removeValue();
+        if (entry instanceof Written) {
+            writtenShowcase.remove(entry);
+        } else if (entry instanceof Edited) {
+            editedShowcase.remove(entry);
+        }
+        return entry;
+    }
 }

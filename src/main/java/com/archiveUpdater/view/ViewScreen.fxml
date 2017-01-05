@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.archiveUpdater.controller.ViewController">
    <children>
       <TabPane prefHeight="600.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
@@ -22,7 +21,7 @@
                      <children>
                         <VBox alignment="TOP_CENTER" layoutX="25.0" layoutY="25.0">
                            <children>
-                              <ListView fx:id="written" prefHeight="450.0" prefWidth="550.0">
+                              <ListView fx:id="written" prefHeight="410.0" prefWidth="550.0">
                                  <VBox.margin>
                                     <Insets bottom="20.0" />
                                  </VBox.margin>
@@ -43,7 +42,11 @@
                                        </font>
                                     </Button>
                                  </children>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" />
+                                 </VBox.margin>
                               </HBox>
+                              <Button mnemonicParsing="false" onAction="#back" prefHeight="31.0" prefWidth="80.0" text="Back" />
                            </children>
                         </VBox>
                      </children>
@@ -56,7 +59,7 @@
                      <children>
                         <VBox alignment="TOP_CENTER" layoutX="25.0" layoutY="25.0">
                            <children>
-                              <ListView fx:id="edited" prefHeight="450.0" prefWidth="550.0">
+                              <ListView fx:id="edited" prefHeight="410.0" prefWidth="550.0">
                                  <VBox.margin>
                                     <Insets bottom="20.0" />
                                  </VBox.margin>
@@ -71,20 +74,24 @@
                                           <Insets right="30.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button fx:id="showcaseEdited" mnemonicParsing="false" text="Add to Showcase">
+                                    <Button fx:id="showcaseEdited" mnemonicParsing="false" onAction="#addEditedShowcase" text="Add to Showcase">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Button>
                                  </children>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" />
+                                 </VBox.margin>
                               </HBox>
+                              <Button mnemonicParsing="false" onAction="#back" prefHeight="31.0" prefWidth="80.0" text="Back" />
                            </children>
                         </VBox>
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
-            <Tab text="Showcase">
+            <Tab text="Written Showcase">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -105,16 +112,6 @@
                                           <Insets bottom="38.0" />
                                        </VBox.margin>
                                     </VBox>
-                                    <VBox>
-                                       <children>
-                                          <Label text="Edited Showcase:">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" />
-                                             </VBox.margin>
-                                          </Label>
-                                          <ListView fx:id="editedShowcase" prefHeight="180.0" prefWidth="200.0" />
-                                       </children>
-                                    </VBox>
                                  </children>
                                  <VBox.margin>
                                     <Insets bottom="20.0" />
@@ -122,7 +119,7 @@
                               </VBox>
                               <HBox alignment="TOP_CENTER">
                                  <children>
-                                    <Button fx:id="removeShowcase" mnemonicParsing="false" prefHeight="44.0" prefWidth="322.0" text="Remove Entry from Showcase">
+                                    <Button fx:id="removeWrittenShowcase" mnemonicParsing="false" onAction="#removeWrittenShowcase" prefHeight="44.0" prefWidth="322.0" text="Remove Entry from Showcase">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -131,7 +128,59 @@
                                        </HBox.margin>
                                     </Button>
                                  </children>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" />
+                                 </VBox.margin>
                               </HBox>
+                              <Button mnemonicParsing="false" onAction="#back" prefHeight="31.0" prefWidth="80.0" text="Back" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Edited Showcase">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" layoutX="25.0" layoutY="25.0">
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <VBox>
+                                       <children>
+                                          <Label text="Edited Showcase:">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <ListView fx:id="editedShowcase" prefHeight="180.0" prefWidth="550.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="38.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <HBox alignment="TOP_CENTER">
+                                 <children>
+                                    <Button fx:id="removeEditedShowcase" mnemonicParsing="false" onAction="#removeEditedShowcase" prefHeight="44.0" prefWidth="322.0" text="Remove Entry from Showcase">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <Button mnemonicParsing="false" onAction="#back" prefHeight="31.0" prefWidth="80.0" text="Back" />
                            </children>
                         </VBox>
                      </children>
