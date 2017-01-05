@@ -18,8 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import java.util.concurrent.TimeUnit;
-
 import com.archiveUpdater.model.Database;
 import com.archiveUpdater.model.FireDatabase;
 import com.archiveUpdater.model.Entry;
@@ -83,20 +81,6 @@ public class AddController extends Controller {
             }
         }
     }
-
-    // @FXML
-    // public void test(ActionEvent event) {
-    //     List<Entry> list = new ArrayList<Entry>();
-    //     list = getApplication().getDatabase().getAllWrittenEntries(list);
-    //     try {
-    //         TimeUnit.MILLISECONDS.sleep(500);
-    //     } catch (InterruptedException e) { }
-    //     System.out.println(list);
-    //     for (Entry e: list) {
-    //         System.out.println(e.getTitle());
-    //     }
-    //     System.out.println("Nothing to Print");
-    // }
 
     /**
      * Returns application to starting screen.

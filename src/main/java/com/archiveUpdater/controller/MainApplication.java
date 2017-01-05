@@ -13,11 +13,13 @@ import javafx.scene.layout.Pane;
 
 import java.io.InputStream;
 
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.archiveUpdater.model.Database;
 import com.archiveUpdater.model.FireDatabase;
+import com.archiveUpdater.model.Entry;
 /**
  * Main Controller for the application.
  *
@@ -29,6 +31,7 @@ public class MainApplication extends Application {
     private Database database;
     private static final int STAGE_WIDTH = 600;
     private static final int STAGE_HEIGHT = 600;
+    private static final int DELAY = 1000;
 
     /**
      * Starts the application
@@ -43,6 +46,9 @@ public class MainApplication extends Application {
     public void start(Stage primaryStage) throws Exception {
         database = new FireDatabase();
         database.initDatabase();
+        try {
+            TimeUnit.MILLISECONDS.sleep(DELAY);
+        } catch (InterruptedException e) { }
         setStage(primaryStage);
         window.setTitle("Synopsis Archive Updater");
         window.setMinWidth(STAGE_WIDTH);
@@ -66,6 +72,25 @@ public class MainApplication extends Application {
     public void loadAdd() {
         Controller addCtrl = loadFXML("/AddScreen.fxml");
         addCtrl.setApplication(this);
+    }
+
+    /**
+     * Loads the entry viewing screen onto the window.
+     */
+    public void loadView() {
+        Controller viewCtrl = loadFXML("/ViewScreen.fxml");
+        viewCtrl.setApplication(this);
+        ((ViewController) viewCtrl).loadLists();
+        ((ViewController) viewCtrl).updateLists();
+    }
+
+    /**
+     * Loads the entry editing screen onto the window.
+     *
+     * @param toEdit  the entry to edit
+     */
+    public void loadEdit(Entry toEdit) {
+        System.out.println(toEdit.getTitle());
     }
 
     /**

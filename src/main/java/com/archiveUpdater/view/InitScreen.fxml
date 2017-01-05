@@ -32,7 +32,7 @@
                               <Insets bottom="15.0" />
                            </VBox.margin>
                         </Button>
-                        <Button fx:id="updateButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Update Entries">
+                        <Button fx:id="updateButton" mnemonicParsing="false" onAction="#view" prefHeight="50.0" prefWidth="200.0" text="Update Entries">
                            <font>
                               <Font size="24.0" />
                            </font>

@@ -33,6 +33,16 @@ public class InitController extends Controller {
     }
 
     /**
+     * Changes to the entry viewing screen.
+     *
+     * @param e  the event that triggers the action.
+     */
+    @FXML
+    public void view(ActionEvent e) {
+        getApplication().loadView();
+    }
+
+    /**
      * Exits the application.
      *
      * @param e  the event that triggers the action

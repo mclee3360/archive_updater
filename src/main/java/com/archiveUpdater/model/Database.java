@@ -17,16 +17,30 @@ public abstract class Database {
     /**
      * Gets all written entries from the database.
      *
-     * @param list  the list to update with all the entries
+     * @return a list of all written entries in the database
      */
-    public abstract void getAllWrittenEntries(List<Entry> list);
+    public abstract List<Entry> getAllWrittenEntries();
 
     /**
-     * gets all edited entries from the database.
+     * Gets all edited entries from the database.
      *
-     * @param list  the list to update with all the entries
+     * @return a list of all edited entries in the database
      */
-    public abstract void getAllEditedEntries(List<Entry> list);
+    public abstract List<Entry> getAllEditedEntries();
+
+    /**
+     * Gets the entries from the written showcase.
+     *
+     * @return list of entries in written showcase
+     */
+    public abstract List<Entry> getWrittenShowcase();
+
+    /**
+     * Gets the entries from the edited showcase.
+     *
+     * @return list of entries in the edited showcase
+     */
+    public abstract List<Entry> getEditedShowcase();
 
     /**
      * Add an entry to the database. If an equivalent entry is
@@ -36,6 +50,15 @@ public abstract class Database {
      * @param entry  the entry to be uploaded to the database
      */
     public abstract void addEntry(Entry entry);
+
+    /**
+     * Add an entry to the showcase database. If an equivalent entry is
+     * already in the database, removes it and adds this entry
+     * in its place.
+     *
+     * @param entry  the entry to be uploaded to the database
+     */
+    public abstract void addShowcase(Entry entry);
 
     /**
      * Remove an entry from the database.

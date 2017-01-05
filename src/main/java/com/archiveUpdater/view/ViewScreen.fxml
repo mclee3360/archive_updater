@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.archiveUpdater.controller.ViewController">
+   <children>
+      <TabPane prefHeight="600.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Written Synopses">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" layoutX="25.0" layoutY="25.0">
+                           <children>
+                              <ListView fx:id="written" prefHeight="450.0" prefWidth="550.0">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                              </ListView>
+                              <HBox alignment="TOP_CENTER">
+                                 <children>
+                                    <Button fx:id="editWritten" mnemonicParsing="false" onAction="#editWritten" prefHeight="44.0" prefWidth="181.0" text="Edit Entry">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets right="30.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="showcaseWritten" mnemonicParsing="false" onAction="#addWrittenShowcase" text="Add to Showcase">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Edited Synopses">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" layoutX="25.0" layoutY="25.0">
+                           <children>
+                              <ListView fx:id="edited" prefHeight="450.0" prefWidth="550.0">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                              </ListView>
+                              <HBox alignment="TOP_CENTER">
+                                 <children>
+                                    <Button fx:id="editEdited" mnemonicParsing="false" onAction="#editEdited" prefHeight="44.0" prefWidth="181.0" text="Edit Entry">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets right="30.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="showcaseEdited" mnemonicParsing="false" text="Add to Showcase">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Showcase">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" layoutX="25.0" layoutY="25.0">
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <VBox>
+                                       <children>
+                                          <Label text="Written Showcase:">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <ListView fx:id="writtenShowcase" prefHeight="180.0" prefWidth="550.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="38.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                    <VBox>
+                                       <children>
+                                          <Label text="Edited Showcase:">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <ListView fx:id="editedShowcase" prefHeight="180.0" prefWidth="200.0" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <HBox alignment="TOP_CENTER">
+                                 <children>
+                                    <Button fx:id="removeShowcase" mnemonicParsing="false" prefHeight="44.0" prefWidth="322.0" text="Remove Entry from Showcase">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
