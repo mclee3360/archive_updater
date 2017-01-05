@@ -35,11 +35,6 @@ public class FireDatabase extends Database {
     }
 
     @Override
-    public boolean containsEntry(Entry entry) {
-        return false;
-    }
-
-    @Override
     public void getAllWrittenEntries(List<Entry> list) {
         database.child("written").addListenerForSingleValueEvent(
             new ValueEventListener() {
@@ -105,7 +100,7 @@ public class FireDatabase extends Database {
     }
 
     @Override
-    public Entry removeEntry(Entry entry) throws NoSuchElementException {
+    public Entry removeEntry(Entry entry) {
         return null;
     }
 

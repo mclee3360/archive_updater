@@ -104,6 +104,11 @@ public abstract class Entry implements Comparable<Entry> {
     }
 
     @Override
+    public String toString() {
+        return title;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

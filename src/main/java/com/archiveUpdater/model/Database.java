@@ -15,14 +15,6 @@ public abstract class Database {
     public abstract void initDatabase();
 
     /**
-     * Gets whether the entry is already contained in database.
-     *
-     * @param entry  the entry to check
-     * @return whether the entry is contained in database
-     */
-    public abstract boolean containsEntry(Entry entry);
-
-    /**
      * Gets all written entries from the database.
      *
      * @param list  the list to update with all the entries
@@ -49,8 +41,7 @@ public abstract class Database {
      * Remove an entry from the database.
      *
      * @param entry  the entry to be removed from the database
-     * @throws NoSuchElementException if entry does not exist in the database
      * @return the removed entry
      */
-    public abstract Entry removeEntry(Entry entry) throws NoSuchElementException;
+    public abstract Entry removeEntry(Entry entry);
 }
