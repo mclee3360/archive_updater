@@ -7,41 +7,34 @@ import java.util.NoSuchElementException;
  *
  * Created 01/04/2017
  */
-public interface Database {
-
+public abstract class Database {
 
     /**
      * Initializes the database.
      */
-    public void initDatabase();
+    public abstract void initDatabase();
 
     /**
-     * Gets an entry from the database.
+     * Gets whether the entry is already contained in database.
      *
-     * @return an Entry from the database
+     * @param entry  the entry to check
+     * @return whether the entry is contained in database
      */
-    public Entry getEntry();
-
-    /**
-     * Gets all entries from the database.
-     *
-     * @return a list of all entries in the database
-     */
-    public List<Entry> getAllEntries();
+    public abstract boolean containsEntry(Entry entry);
 
     /**
      * Gets all written entries from the database.
      *
-     * @return a list of all written entries in the database
+     * @param list  the list to update with all the entries
      */
-    public List<Written> getAllWrittenEntries();
+    public abstract void getAllWrittenEntries(List<Entry> list);
 
     /**
      * gets all edited entries from the database.
      *
-     * @return a list of all edited entries in the database
+     * @param list  the list to update with all the entries
      */
-    public List<Edited> getAllEditedEntries();
+    public abstract void getAllEditedEntries(List<Entry> list);
 
     /**
      * Add an entry to the database. If an equivalent entry is
@@ -50,7 +43,7 @@ public interface Database {
      *
      * @param entry  the entry to be uploaded to the database
      */
-    public void addEntry(Entry entry);
+    public abstract void addEntry(Entry entry);
 
     /**
      * Remove an entry from the database.
@@ -59,5 +52,5 @@ public interface Database {
      * @throws NoSuchElementException if entry does not exist in the database
      * @return the removed entry
      */
-    public Entry removeEntry(Entry entry) throws NoSuchElementException;
+    public abstract Entry removeEntry(Entry entry) throws NoSuchElementException;
 }

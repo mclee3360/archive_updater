@@ -24,4 +24,17 @@ public class Written extends Entry {
         setFinalEdit(didFinalEdit);
         setUploaded(isUploaded);
     }
+
+    /**
+     * Creates an entry for an written synopsis using a mock entry.
+     *
+     * @param mock  the mock entry to create an entry from
+     */
+    public Written(MockEntry mock) {
+        setEntrySource(mock.getSource());
+        setImageSource(mock.getPoster());
+        setTitle(mock.getTitle());
+        setFinalEdit(mock.getFinalEdit());
+        setUploaded(mock.getUploaded());
+    }
 }

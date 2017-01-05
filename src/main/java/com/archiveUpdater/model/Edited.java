@@ -24,4 +24,17 @@ public class Edited extends Entry {
         setFinalEdit(false);
         setUploaded(isUploaded);
     }
+
+    /**
+     * Creates an entry for an edited synopsis using a mock entry.
+     *
+     * @param mock  the mock entry to create an entry from
+     */
+    public Edited(MockEntry mock) {
+        setEntrySource(mock.getSource());
+        setImageSource(mock.getPoster());
+        setTitle(mock.getTitle());
+        setFinalEdit(false);
+        setUploaded(mock.getUploaded());
+    }
 }

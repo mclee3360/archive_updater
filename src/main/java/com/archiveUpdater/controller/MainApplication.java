@@ -1,8 +1,5 @@
 package com.archiveUpdater.controller;
 
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.FirebaseOptions;
-
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
@@ -14,11 +11,13 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
-import java.io.FileInputStream;
 import java.io.InputStream;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import com.archiveUpdater.model.Database;
+import com.archiveUpdater.model.FireDatabase;
 /**
  * Main Controller for the application.
  *
@@ -27,6 +26,7 @@ import java.util.logging.Logger;
 public class MainApplication extends Application {
 
     private Stage window;
+    private Database database;
     private static final int STAGE_WIDTH = 600;
     private static final int STAGE_HEIGHT = 600;
 
@@ -41,6 +41,8 @@ public class MainApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        database = new FireDatabase();
+        database.initDatabase();
         setStage(primaryStage);
         window.setTitle("Synopsis Archive Updater");
         window.setMinWidth(STAGE_WIDTH);
@@ -82,6 +84,15 @@ public class MainApplication extends Application {
      */
     public void setStage(Stage window) {
         this.window = window;
+    }
+
+    /**
+     * Gets the application's database.
+     *
+     * @return the application database
+     */
+    public Database getDatabase() {
+        return database;
     }
 
     /**

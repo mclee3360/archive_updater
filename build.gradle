@@ -6,7 +6,7 @@ mainClassName = 'com.archiveUpdater.controller.MainApplication'
 sourceSets {
     main {
         resources {
-            srcDirs = ["src/main/java/com/archiveUpdater/view"]
+            srcDirs = ["src/main/java/com/archiveUpdater/view", "src/main/resources"]
             includes = ["*.fxml"]
         }
     }
@@ -14,14 +14,19 @@ sourceSets {
 
 repositories {
     mavenCentral()
+    flatDir {
+        dirs 'lib'
+    }
 }
 
 dependencies {
-    compile 'com.google.firebase:firebase-admin:4.0.3'
+    compile 'com.firebase:firebase-client-jvm-2.5.2'
 }
 
 jar {
     manifest {
-        attributes ('Main-Class': 'com.archiveUpdater.controller.MainApplication')
+        attributes ('Main-Class': 'com.archiveUpdater.controller.MainApplication',
+                    'Class-Path': '../../lib/firebase-client-jvm-2.5.2.jar'
+                    )
     }
 }
