@@ -21,7 +21,9 @@
     -fx-background-image: url("images/background.png");
     -fx-opacity: .9;
 }
-
+.tab_pane {
+    -fx-background-position: bottom;
+}
 .text-header {
     -fx-background-color: transparent;
     -fx-opacity: 1;
