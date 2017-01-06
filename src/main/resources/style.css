@@ -1,0 +1,166 @@
+@font-face {
+    src: url("fonts/Nightingale.otf");
+}
+@font-face {
+    src: url("fonts/Walkway.ttf");
+}
+@font-face {
+    src: url("fonts/MoonBold.ttf");
+}
+@font-face {
+    src: url("fonts/sunshine.ttf");
+}
+@font-face {
+    src: url("fonts/flower.ttf");
+}
+.root {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.app_pane {
+    -fx-background-image: url("images/background.png");
+    -fx-opacity: .9;
+}
+
+.text-header {
+    -fx-background-color: transparent;
+    -fx-opacity: 1;
+}
+#tHeader1 {
+    -fx-background-image: url("images/title1.png");
+}
+#tHeader2 {
+    -fx-background-image: url("images/title2.png");
+}
+#tHeader3 {
+    -fx-background-image: url("images/title3.png");
+}
+.proxy {
+    -fx-background-color: transparent;
+}
+.button0 {
+    -fx-background-color: transparent;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-font-family: "Moon Flower Bold";
+    -fx-text-fill: #595959;
+    -fx-opacity: .98;
+}
+.button1 {
+    -fx-background-image: url("images/button.png");
+    -fx-font-size: 28px;
+}
+.button1:hover {
+    -fx-background-image: url("images/buttonHover.png");
+}
+.button2 {
+    -fx-font-size: 20px;
+    -fx-background-image: url("images/button2.png");
+}
+.button2:hover {
+    -fx-background-image: url("images/button2hover.png");
+}
+.button3 {
+    -fx-font-size: 30px;
+    -fx-background-image: url("images/button3.png");
+}
+.button3:hover {
+    -fx-background-image: url("images/button3hover.png");
+}
+.button4 {
+    -fx-font-size: 30px;
+    -fx-background-image: url("images/button4.png");
+}
+.button4:hover {
+    -fx-background-image: url("images/button4hover.png");
+}
+.labels {
+    -fx-font-family: "A little sunshine";
+    -fx-font-size: 19px;
+}
+.checks {
+    -fx-font-family: "A little sunshine";
+    -fx-font-size: 19px;
+}
+.checks > .box {
+    -fx-background-color: #e9eadd;
+    -fx-border-width: 1px;
+    -fx-border-color: #cdceb0;
+    -fx-border-radius: 3px;
+}
+.checks > .box:hover {
+    -fx-border-color: #b5b78a;
+    -fx-background-color: #e1e2cf;
+}
+.text-entry {
+    -fx-background-color: white;
+    -fx-border-width: 1px;
+    -fx-border-color: rgb(186, 186, 186);
+    -fx-border-radius: 3px;
+}
+.selection {
+    -fx-background-color: #e9eadd;
+    -fx-border-width: 1px;
+    -fx-border-color: #cdceb0;
+    -fx-border-radius: 3px;
+}
+.selection:hover {
+    -fx-border-color: #b5b78a;
+    -fx-background-color: #e1e2cf;
+}
+.selection > .list-cell {
+    -fx-font-family: "A little sunshine";
+    -fx-font-size: 19px;
+}
+.combo-box-popup .list-view .list-cell {
+    -fx-font-family: "A little sunshine";
+    -fx-font-size: 19px;
+    -fx-background-color: #e9eadd;
+    -fx-border-width: 1px;
+    -fx-border-color: transparent;
+    -fx-text-fill: #3c3d25;
+}
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-border-color: #b5b78a;
+    -fx-background-color: #e1e2cf;
+}
+.tab-pane .tab {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-font-family: "A little sunshine";
+    -fx-font-size: 19px;
+}
+.entryList {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-background-color: transparent;
+    -fx-opacity: .95;
+    -fx-border-width: 1px;
+    -fx-border-color: #b5b78a;
+}
+.entryList .list-cell {
+    -fx-font-family: "A little sunshine";
+    -fx-font-size: 21px;
+    -fx-background-color: #f4f4ee;
+    -fx-border-width: 1px;
+    -fx-border-color: transparent;
+    -fx-text-fill: #3c3d25;
+}
+.entryList .list-cell:even {
+    -fx-background-color: #ecece1;
+}
+.entryList .list-cell:hover {
+    -fx-background-color: #e1e2cf;
+}
+.entryList .list-cell:selected {
+    -fx-background-color: #e1e2cf;
+    -fx-border-color: #b5b78a transparent #b5b78a transparent;
+}
+.trash {
+    -fx-background-color: transparent;
+    -fx-background-image: url("images/trash.png");
+}
+.trash:hover {
+    -fx-background-image: url("images/trashhover.png");
+}

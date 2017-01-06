@@ -7,7 +7,7 @@ sourceSets {
     main {
         resources {
             srcDirs = ["src/main/java/com/archiveUpdater/view", "src/main/resources"]
-            includes = ["*.fxml"]
+            includes = ["*.fxml", "*.css", "**/*.png", "**/*.jpg", "**/*.otf", "**/*.ttf"]
         }
     }
 }

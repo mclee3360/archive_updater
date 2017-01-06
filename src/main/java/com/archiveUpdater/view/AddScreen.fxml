@@ -7,55 +7,52 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.archiveUpdater.controller.AddController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" styleClass="app_pane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.archiveUpdater.controller.AddController">
    <children>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="6.0" prefWidth="20.0" styleClass="proxy" />
       <VBox alignment="TOP_CENTER" layoutX="100.0" layoutY="14.0">
          <children>
-            <TextArea disable="true" editable="false" prefHeight="128.0" prefWidth="400.0" text="Add New Entry's&#10;Information">
-               <font>
-                  <Font size="36.0" />
-               </font>
+            <TextField id="tHeader2" disable="true" editable="false" prefHeight="130.0" prefWidth="400.0" styleClass="text-header">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
-            </TextArea>
+            </TextField>
             <VBox alignment="TOP_CENTER">
                <children>
                   <VBox>
                      <children>
-                        <Label text="Entry's Title">
+                        <Label styleClass="labels" text="Entry's Title">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="titleInput" prefHeight="40.0" prefWidth="400.0">
+                        <TextField fx:id="titleInput" prefHeight="40.0" prefWidth="400.0" styleClass="text-entry">
                            <VBox.margin>
                               <Insets bottom="10.0" />
                            </VBox.margin>
                         </TextField>
-                        <Label text="Entry's Source URL">
+                        <Label styleClass="labels" text="Entry's Source URL">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="sourceInput" prefHeight="40.0" prefWidth="400.0">
+                        <TextField fx:id="sourceInput" prefHeight="40.0" prefWidth="400.0" styleClass="text-entry">
                            <VBox.margin>
                               <Insets bottom="10.0" />
                            </VBox.margin>
                         </TextField>
-                        <Label text="Entry's Poster URL">
+                        <Label styleClass="labels" text="Entry's Poster URL">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="posterInput" prefHeight="40.0" prefWidth="400.0" />
+                        <TextField fx:id="posterInput" prefHeight="40.0" prefWidth="400.0" styleClass="text-entry" />
                      </children>
                      <VBox.margin>
                         <Insets bottom="20.0" />
@@ -63,7 +60,7 @@
                   </VBox>
                   <VBox alignment="TOP_CENTER">
                      <children>
-                        <ComboBox fx:id="typeBox" onAction="#checkType" prefHeight="31.0" prefWidth="250.0" promptText="--Select Entry Type--">
+                        <ComboBox fx:id="typeBox" onAction="#checkType" prefHeight="31.0" prefWidth="250.0" promptText="--Select Entry Type--" styleClass="selection">
                             <items>
                               <FXCollections fx:factory="observableArrayList">
                                  <String fx:value="Written" />
@@ -76,12 +73,12 @@
                         </ComboBox>
                         <HBox alignment="TOP_CENTER">
                            <children>
-                              <CheckBox fx:id="uploadedBox" mnemonicParsing="false" text="Uploaded">
+                              <CheckBox fx:id="uploadedBox" mnemonicParsing="false" styleClass="checks" text="Uploaded">
                                  <HBox.margin>
                                     <Insets right="50.0" />
                                  </HBox.margin>
                               </CheckBox>
-                              <CheckBox fx:id="finalEditBox" mnemonicParsing="false" text="Final Edit" />
+                              <CheckBox fx:id="finalEditBox" mnemonicParsing="false" styleClass="checks" text="Final Edit" />
                            </children>
                         </HBox>
                      </children>
@@ -91,15 +88,23 @@
                   </VBox>
                   <VBox alignment="TOP_CENTER">
                      <children>
-                        <Button fx:id="addButton" mnemonicParsing="false" onAction="#add" text="Add Entry">
+                        <Button fx:id="addButton" mnemonicParsing="false" onAction="#add" prefHeight="51.0" prefWidth="160.0" text="Add Entry">
                            <font>
                               <Font size="25.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="10.0" />
                            </VBox.margin>
+                           <styleClass>
+                              <String fx:value="button1" />
+                              <String fx:value="button0" />
+                           </styleClass>
                         </Button>
-                        <Button fx:id="backButton" mnemonicParsing="false" onAction="#back" prefHeight="31.0" prefWidth="62.0" text="Back" />
+                        <Button fx:id="backButton" mnemonicParsing="false" onAction="#back" prefHeight="35.0" prefWidth="75.0" text="Back">
+                           <styleClass>
+                              <String fx:value="button2" />
+                              <String fx:value="button0" />
+                           </styleClass></Button>
                      </children>
                   </VBox>
                </children>

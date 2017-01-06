@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
@@ -7,35 +8,39 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.archiveUpdater.controller.InitController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" styleClass="app_pane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.archiveUpdater.controller.InitController">
    <children>
-      <VBox layoutX="77.0" layoutY="300.0">
+      <VBox layoutX="25.0" layoutY="208.0">
          <children>
-            <TextField alignment="CENTER" disable="true" editable="false" text="Synopsis Archive Updater">
-               <font>
-                  <Font size="36.0" />
-               </font>
+            <TextField id="tHeader1" alignment="CENTER" disable="true" editable="false" prefHeight="175.0" prefWidth="400.0" styleClass="text-header" stylesheets="@style.css">
                <VBox.margin>
-                  <Insets bottom="35.0" />
+                  <Insets bottom="5.0" />
                </VBox.margin>
             </TextField>
             <VBox alignment="TOP_CENTER">
                <children>
                   <VBox alignment="TOP_CENTER">
                      <children>
-                        <Button fx:id="addButton" mnemonicParsing="false" onAction="#add" prefHeight="50.0" prefWidth="200.0" text="Add Entry">
+                        <Button fx:id="addButton" mnemonicParsing="false" onAction="#add" prefHeight="51.0" prefWidth="160.0" stylesheets="@style.css" text="Add Entry">
                            <font>
                               <Font size="24.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="15.0" />
                            </VBox.margin>
+                           <styleClass>
+                              <String fx:value="button1" />
+                              <String fx:value="button0" />
+                           </styleClass>
                         </Button>
-                        <Button fx:id="updateButton" mnemonicParsing="false" onAction="#view" prefHeight="50.0" prefWidth="200.0" text="Update Entries">
+                        <Button fx:id="updateButton" mnemonicParsing="false" onAction="#view" prefHeight="50.0" prefWidth="160.0" stylesheets="@style.css" text="Update Entries">
                            <font>
                               <Font size="24.0" />
                            </font>
+                           <styleClass>
+                              <String fx:value="button1" />
+                              <String fx:value="button0" />
+                           </styleClass>
                         </Button>
                      </children>
                      <VBox.margin>
@@ -46,6 +51,10 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <styleClass>
+                        <String fx:value="button2" />
+                        <String fx:value="button0" />
+                     </styleClass>
                   </Button>
                </children>
             </VBox>

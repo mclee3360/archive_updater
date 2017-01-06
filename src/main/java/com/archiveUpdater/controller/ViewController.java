@@ -103,7 +103,7 @@ public class ViewController extends Controller {
         try {
             Entry selected = written.getSelectionModel().getSelectedItem();
             if (selected == null) {
-                throw new NullPointerException("Please select an entry to remove");
+                throw new NullPointerException("Please select an entry to edit");
             }
             getApplication().loadEdit(selected);
         } catch (NullPointerException error) {
@@ -143,7 +143,7 @@ public class ViewController extends Controller {
         try {
             Entry selected = edited.getSelectionModel().getSelectedItem();
             if (selected == null) {
-                throw new NullPointerException("Please select an entry to remove");
+                throw new NullPointerException("Please select an entry to edit");
             }
             getApplication().loadEdit(selected);
         } catch (NullPointerException error) {
