@@ -7,6 +7,7 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
+import javafx.scene.image.Image;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -50,6 +51,7 @@ public class MainApplication extends Application {
             TimeUnit.MILLISECONDS.sleep(DELAY);
         } catch (InterruptedException e) { }
         setStage(primaryStage);
+        window.getIcons().add(new Image("/images/icon.png"));
         window.setTitle("Synopsis Archive Updater");
         window.setMinWidth(STAGE_WIDTH);
         window.setMinHeight(STAGE_HEIGHT);
